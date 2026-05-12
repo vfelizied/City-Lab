@@ -244,7 +244,6 @@ with st.sidebar:
         "- En revisión\n"
         "- Priorizado"
     )
-```
 
 ---
 
