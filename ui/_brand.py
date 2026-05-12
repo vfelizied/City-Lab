@@ -1,4 +1,6 @@
 from ui._brand import inject_brand
+import streamlit as st
+
 def inject_brand():
     st.markdown(
         """
