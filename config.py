@@ -2,8 +2,14 @@ import streamlit as st
 
 APP_NAME = "Reporte Ciudadano"
 
-SUPABASE_URL = st.secrets["SUPABASE_URL"]
-SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
+def get_secret(key, default=None):
+    try:
+        return st.secrets[key]
+    except Exception:
+        return default
+
+SUPABASE_URL = get_secret("SUPABASE_URL")
+SUPABASE_KEY = get_secret("SUPABASE_KEY")
 
 CATEGORIES = [
     "Alumbrado",
