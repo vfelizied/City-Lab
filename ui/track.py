@@ -1,4 +1,7 @@
+import streamlit as st
 from ui._brand import inject_brand
+
+inject_brand()
 from logic.report_service import get_report
 
 def render(report_id: str):
