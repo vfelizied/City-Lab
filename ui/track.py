@@ -2,12 +2,21 @@ import streamlit as st
 from logic.report_service import get_report
 
 def render(report_id: str):
-    st.title("Seguimiento")
+    st.title("Seguimiento del reporte")
 
-    report = get_report(report_id)
-
-    if not report:
-        st.error("No encontrado")
+    if not report_id:
+        st.warning("Ingresa un ID de reporte")
         return
 
-    st.write(report)
+    with st.spinner("Buscando reporte..."):
+        report = get_report(report_id)
+
+    if not report:
+        st.error("No encontramos este reporte")
+        return
+
+    status = report["status"]
+
+    st.subheader(f"Estado: {status}")
+    st.write("Ubicación:", report["location"])
+    st.write("Descripción:", report["description"])
