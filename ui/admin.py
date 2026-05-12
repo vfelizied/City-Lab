@@ -1,7 +1,4 @@
 import streamlit as st
-from ui._brand import inject_brand
-
-inject_brand()
 from config import STATUSES
 from logic.report_service import get_reports, change_status
 
